@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="selfgymdbModelStoreContainer" CdmEntityContainer="selfgymdbEntities">
+    <EntitySetMapping Name="EJERCICIO">
+      <EntityTypeMapping TypeName="selfgymdbModel.EJERCICIO">
+        <MappingFragment StoreEntitySet="EJERCICIO">
+          <ScalarProperty Name="EJE_ID" ColumnName="EJE_ID" />
+          <ScalarProperty Name="EJE_CODIGO" ColumnName="EJE_CODIGO" />
+          <ScalarProperty Name="EJE_NOMBRE" ColumnName="EJE_NOMBRE" />
+          <ScalarProperty Name="EJE_LINKTUTORIAL" ColumnName="EJE_LINKTUTORIAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LUGARES_RECREATIVOS">
+      <EntityTypeMapping TypeName="selfgymdbModel.LUGARES_RECREATIVOS">
+        <MappingFragment StoreEntitySet="LUGARES_RECREATIVOS">
+          <ScalarProperty Name="LUG_ID" ColumnName="LUG_ID" />
+          <ScalarProperty Name="LUG_DIRECCION" ColumnName="LUG_DIRECCION" />
+          <ScalarProperty Name="LUG_NOMBRE" ColumnName="LUG_NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RUTINA">
+      <EntityTypeMapping TypeName="selfgymdbModel.RUTINA">
+        <MappingFragment StoreEntitySet="RUTINA">
+          <ScalarProperty Name="RUT_ID" ColumnName="RUT_ID" />
+          <ScalarProperty Name="RUT_NOMBRE" ColumnName="RUT_NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RUTINA_EJERCICIO">
+      <EntityTypeMapping TypeName="selfgymdbModel.RUTINA_EJERCICIO">
+        <MappingFragment StoreEntitySet="RUTINA_EJERCICIO">
+          <ScalarProperty Name="RUT_EJE_ID" ColumnName="RUT_EJE_ID" />
+          <ScalarProperty Name="RUT_ID" ColumnName="RUT_ID" />
+          <ScalarProperty Name="EJE_ID" ColumnName="EJE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="selfgymdbModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="USU_NOMBREUSUARIO" ColumnName="USU_NOMBREUSUARIO" />
+          <ScalarProperty Name="USU_CONTRASENA" ColumnName="USU_CONTRASENA" />
+          <ScalarProperty Name="USU_NOMBRE" ColumnName="USU_NOMBRE" />
+          <ScalarProperty Name="USU_APELLIDO" ColumnName="USU_APELLIDO" />
+          <ScalarProperty Name="USU_EDAD" ColumnName="USU_EDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO_RUTINA">
+      <EntityTypeMapping TypeName="selfgymdbModel.USUARIO_RUTINA">
+        <MappingFragment StoreEntitySet="USUARIO_RUTINA">
+          <ScalarProperty Name="USU_RUT_ID" ColumnName="USU_RUT_ID" />
+          <ScalarProperty Name="USU_NOMBREUSUARIO" ColumnName="USU_NOMBREUSUARIO" />
+          <ScalarProperty Name="RUT_ID" ColumnName="RUT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

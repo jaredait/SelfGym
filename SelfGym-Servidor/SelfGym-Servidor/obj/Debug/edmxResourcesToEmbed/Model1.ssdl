@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="selfgymdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="EJERCICIO">
+    <Key>
+      <PropertyRef Name="EJE_ID" />
+    </Key>
+    <Property Name="EJE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EJE_CODIGO" Type="varchar" MaxLength="1024" />
+    <Property Name="EJE_NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="EJE_LINKTUTORIAL" Type="varchar" MaxLength="1024" />
+  </EntityType>
+  <EntityType Name="LUGARES_RECREATIVOS">
+    <Key>
+      <PropertyRef Name="LUG_ID" />
+    </Key>
+    <Property Name="LUG_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LUG_DIRECCION" Type="varchar" MaxLength="1024" />
+    <Property Name="LUG_NOMBRE" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="RUTINA">
+    <Key>
+      <PropertyRef Name="RUT_ID" />
+    </Key>
+    <Property Name="RUT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RUT_NOMBRE" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="RUTINA_EJERCICIO">
+    <Key>
+      <PropertyRef Name="RUT_EJE_ID" />
+    </Key>
+    <Property Name="RUT_EJE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RUT_ID" Type="int" />
+    <Property Name="EJE_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="USU_NOMBREUSUARIO" />
+    </Key>
+    <Property Name="USU_NOMBREUSUARIO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="USU_CONTRASENA" Type="varchar" MaxLength="50" />
+    <Property Name="USU_NOMBRE" Type="varchar" MaxLength="50" />
+    <Property Name="USU_APELLIDO" Type="varchar" MaxLength="50" />
+    <Property Name="USU_EDAD" Type="int" />
+  </EntityType>
+  <EntityType Name="USUARIO_RUTINA">
+    <Key>
+      <PropertyRef Name="USU_RUT_ID" />
+    </Key>
+    <Property Name="USU_RUT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USU_NOMBREUSUARIO" Type="varchar" MaxLength="50" />
+    <Property Name="RUT_ID" Type="int" />
+  </EntityType>
+  <Association Name="FK_RUTINA_E_RELATIONS_EJERCICI">
+    <End Role="EJERCICIO" Type="Self.EJERCICIO" Multiplicity="0..1" />
+    <End Role="RUTINA_EJERCICIO" Type="Self.RUTINA_EJERCICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EJERCICIO">
+        <PropertyRef Name="EJE_ID" />
+      </Principal>
+      <Dependent Role="RUTINA_EJERCICIO">
+        <PropertyRef Name="EJE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RUTINA_E_RELATIONS_RUTINA">
+    <End Role="RUTINA" Type="Self.RUTINA" Multiplicity="0..1" />
+    <End Role="RUTINA_EJERCICIO" Type="Self.RUTINA_EJERCICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RUTINA">
+        <PropertyRef Name="RUT_ID" />
+      </Principal>
+      <Dependent Role="RUTINA_EJERCICIO">
+        <PropertyRef Name="RUT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIO__RELATIONS_RUTINA">
+    <End Role="RUTINA" Type="Self.RUTINA" Multiplicity="0..1" />
+    <End Role="USUARIO_RUTINA" Type="Self.USUARIO_RUTINA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RUTINA">
+        <PropertyRef Name="RUT_ID" />
+      </Principal>
+      <Dependent Role="USUARIO_RUTINA">
+        <PropertyRef Name="RUT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIO__RELATIONS_USUARIO">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="USUARIO_RUTINA" Type="Self.USUARIO_RUTINA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="USU_NOMBREUSUARIO" />
+      </Principal>
+      <Dependent Role="USUARIO_RUTINA">
+        <PropertyRef Name="USU_NOMBREUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="selfgymdbModelStoreContainer">
+    <EntitySet Name="EJERCICIO" EntityType="Self.EJERCICIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LUGARES_RECREATIVOS" EntityType="Self.LUGARES_RECREATIVOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RUTINA" EntityType="Self.RUTINA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RUTINA_EJERCICIO" EntityType="Self.RUTINA_EJERCICIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIO_RUTINA" EntityType="Self.USUARIO_RUTINA" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_RUTINA_E_RELATIONS_EJERCICI" Association="Self.FK_RUTINA_E_RELATIONS_EJERCICI">
+      <End Role="EJERCICIO" EntitySet="EJERCICIO" />
+      <End Role="RUTINA_EJERCICIO" EntitySet="RUTINA_EJERCICIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RUTINA_E_RELATIONS_RUTINA" Association="Self.FK_RUTINA_E_RELATIONS_RUTINA">
+      <End Role="RUTINA" EntitySet="RUTINA" />
+      <End Role="RUTINA_EJERCICIO" EntitySet="RUTINA_EJERCICIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIO__RELATIONS_RUTINA" Association="Self.FK_USUARIO__RELATIONS_RUTINA">
+      <End Role="RUTINA" EntitySet="RUTINA" />
+      <End Role="USUARIO_RUTINA" EntitySet="USUARIO_RUTINA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIO__RELATIONS_USUARIO" Association="Self.FK_USUARIO__RELATIONS_USUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="USUARIO_RUTINA" EntitySet="USUARIO_RUTINA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

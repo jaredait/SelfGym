@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1bb3c41897cb4a5ab739eae9bb6fd2e3" Name="Diagram1">
+        <EntityTypeShape EntityType="selfgymdbModel.EJERCICIO" Width="1.5" PointX="2.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="selfgymdbModel.LUGARES_RECREATIVOS" Width="1.5" PointX="10.125" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="selfgymdbModel.RUTINA" Width="1.5" PointX="6.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="selfgymdbModel.RUTINA_EJERCICIO" Width="1.5" PointX="2.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="selfgymdbModel.USUARIO" Width="1.5" PointX="10.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="selfgymdbModel.USUARIO_RUTINA" Width="1.5" PointX="6.625" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="selfgymdbModel.FK_RUTINA_E_RELATIONS_EJERCICI" ManuallyRouted="false" />
+        <AssociationConnector Association="selfgymdbModel.FK_RUTINA_E_RELATIONS_RUTINA" ManuallyRouted="false" />
+        <AssociationConnector Association="selfgymdbModel.FK_USUARIO__RELATIONS_RUTINA" ManuallyRouted="false" />
+        <AssociationConnector Association="selfgymdbModel.FK_USUARIO__RELATIONS_USUARIO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

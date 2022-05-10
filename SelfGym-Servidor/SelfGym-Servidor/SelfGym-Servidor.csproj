@@ -194,6 +194,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Implementaciones\EjercicioModelo.cs" />
+    <Compile Include="Models\Interfaces\IEjercicio.cs" />
     <Compile Include="PartialClasses\EJERCICIO.cs" />
     <Compile Include="PartialClasses\RUTINA.cs" />
     <Compile Include="PartialClasses\USUARIO.cs" />
@@ -283,7 +285,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

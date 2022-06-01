@@ -10,10 +10,10 @@ namespace SelfGym_Servidor.PartialClasses
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public USUARIO()
         {
-            this.USUARIO_RUTINA = new HashSet<USUARIO_RUTINA>();
+            this.USUARIO_RUTINA = new List<USUARIO_RUTINA>();
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<USUARIO_RUTINA> USUARIO_RUTINA { get; set; }
+        public virtual IEnumerable<USUARIO_RUTINA> USUARIO_RUTINA { get; set; }
     }
 }

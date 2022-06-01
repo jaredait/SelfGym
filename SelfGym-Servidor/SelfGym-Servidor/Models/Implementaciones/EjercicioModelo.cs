@@ -40,7 +40,7 @@ namespace SelfGym_Servidor.Models.Implementaciones
             }
         }
 
-        public IEnumerable ObtenerTodos()
+        public IEnumerable<EJERCICIO> ObtenerTodos()
         {
             try
             {

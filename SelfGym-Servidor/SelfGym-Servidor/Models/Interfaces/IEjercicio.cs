@@ -9,7 +9,7 @@ namespace SelfGym_Servidor.Models.Interfaces
 {
     interface IEjercicio
     {
-        IEnumerable ObtenerTodos();
+        IEnumerable<EJERCICIO> ObtenerTodos();
         EJERCICIO ObtenerPorId(int id);
         EJERCICIO ObtenerPorCodigo(string codigo);
     }

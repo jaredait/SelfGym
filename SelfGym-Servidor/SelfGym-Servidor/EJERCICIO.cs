@@ -11,21 +11,14 @@ namespace SelfGym_Servidor
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class EJERCICIO
-    {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EJERCICIO()
-        {
-            this.RUTINA_EJERCICIO = new HashSet<RUTINA_EJERCICIO>();
-        }
-    
+    {    
+        [Key]
         public int EJE_ID { get; set; }
         public string EJE_CODIGO { get; set; }
         public string EJE_NOMBRE { get; set; }
         public string EJE_LINKTUTORIAL { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RUTINA_EJERCICIO> RUTINA_EJERCICIO { get; set; }
     }
 }

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="selfgymdb2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CATEGORIA">
+    <Key>
+      <PropertyRef Name="CAT_ID" />
+    </Key>
+    <Property Name="CAT_ID" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="CAT_NOMBRE" Type="varchar" MaxLength="256" />
+    <Property Name="CAT_DESCRIPCION" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="EJERCICIO">
+    <Key>
+      <PropertyRef Name="EJE_ID" />
+    </Key>
+    <Property Name="EJE_ID" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="CAT_ID" Type="varchar" MaxLength="256" />
+    <Property Name="EJE_NOMBRE" Type="varchar" MaxLength="256" />
+    <Property Name="EJE_DESCRIPCION" Type="varchar" MaxLength="256" />
+    <Property Name="EJE_URLVIDEO" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="NOTICIA">
+    <Key>
+      <PropertyRef Name="NOT_ID" />
+    </Key>
+    <Property Name="NOT_ID" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="NOT_DESCRIPCION" Type="text" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="USU_ID" />
+    </Key>
+    <Property Name="USU_ID" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="USU_CONTRASENA" Type="varchar" MaxLength="256" />
+    <Property Name="USU_EMAIL" Type="varchar" MaxLength="256" />
+    <Property Name="USU_EDAD" Type="int" />
+  </EntityType>
+  <Association Name="FK_EJERCICI_CATEGORIA_CATEGORI">
+    <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="0..1" />
+    <End Role="EJERCICIO" Type="Self.EJERCICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIA">
+        <PropertyRef Name="CAT_ID" />
+      </Principal>
+      <Dependent Role="EJERCICIO">
+        <PropertyRef Name="CAT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="selfgymdb2ModelStoreContainer">
+    <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EJERCICIO" EntityType="Self.EJERCICIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NOTICIA" EntityType="Self.NOTICIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_EJERCICI_CATEGORIA_CATEGORI" Association="Self.FK_EJERCICI_CATEGORIA_CATEGORI">
+      <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+      <End Role="EJERCICIO" EntitySet="EJERCICIO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

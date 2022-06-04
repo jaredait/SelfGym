@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="selfgymdb2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CATEGORIA">
+    <Key>
+      <PropertyRef Name="CAT_ID" />
+    </Key>
+    <Property Name="CAT_ID" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CAT_NOMBRE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="CAT_DESCRIPCION" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EJERCICIO" Relationship="Self.FK_EJERCICI_CATEGORIA_CATEGORI" FromRole="CATEGORIA" ToRole="EJERCICIO" />
+  </EntityType>
+  <EntityType Name="EJERCICIO">
+    <Key>
+      <PropertyRef Name="EJE_ID" />
+    </Key>
+    <Property Name="EJE_ID" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CAT_ID" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="EJE_NOMBRE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="EJE_DESCRIPCION" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="EJE_URLVIDEO" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CATEGORIA" Relationship="Self.FK_EJERCICI_CATEGORIA_CATEGORI" FromRole="EJERCICIO" ToRole="CATEGORIA" />
+  </EntityType>
+  <EntityType Name="NOTICIA">
+    <Key>
+      <PropertyRef Name="NOT_ID" />
+    </Key>
+    <Property Name="NOT_ID" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOT_DESCRIPCION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="USU_ID" />
+    </Key>
+    <Property Name="USU_ID" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USU_CONTRASENA" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="USU_EMAIL" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="USU_EDAD" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_EJERCICI_CATEGORIA_CATEGORI">
+    <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="0..1" />
+    <End Role="EJERCICIO" Type="Self.EJERCICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIA">
+        <PropertyRef Name="CAT_ID" />
+      </Principal>
+      <Dependent Role="EJERCICIO">
+        <PropertyRef Name="CAT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="selfgymdb2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" />
+    <EntitySet Name="EJERCICIO" EntityType="Self.EJERCICIO" />
+    <EntitySet Name="NOTICIA" EntityType="Self.NOTICIA" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+    <AssociationSet Name="FK_EJERCICI_CATEGORIA_CATEGORI" Association="Self.FK_EJERCICI_CATEGORIA_CATEGORI">
+      <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+      <End Role="EJERCICIO" EntitySet="EJERCICIO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

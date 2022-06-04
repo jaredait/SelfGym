@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="selfgymdb2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CATEGORIA">
+          <Key>
+            <PropertyRef Name="CAT_ID" />
+          </Key>
+          <Property Name="CAT_ID" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="CAT_NOMBRE" Type="varchar" MaxLength="256" />
+          <Property Name="CAT_DESCRIPCION" Type="varchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="EJERCICIO">
+          <Key>
+            <PropertyRef Name="EJE_ID" />
+          </Key>
+          <Property Name="EJE_ID" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="CAT_ID" Type="varchar" MaxLength="256" />
+          <Property Name="EJE_NOMBRE" Type="varchar" MaxLength="256" />
+          <Property Name="EJE_DESCRIPCION" Type="varchar" MaxLength="256" />
+          <Property Name="EJE_URLVIDEO" Type="varchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="NOTICIA">
+          <Key>
+            <PropertyRef Name="NOT_ID" />
+          </Key>
+          <Property Name="NOT_ID" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="NOT_DESCRIPCION" Type="text" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="USU_ID" />
+          </Key>
+          <Property Name="USU_ID" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="USU_CONTRASENA" Type="varchar" MaxLength="256" />
+          <Property Name="USU_EMAIL" Type="varchar" MaxLength="256" />
+          <Property Name="USU_EDAD" Type="int" />
+        </EntityType>
+        <Association Name="FK_EJERCICI_CATEGORIA_CATEGORI">
+          <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="0..1" />
+          <End Role="EJERCICIO" Type="Self.EJERCICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA">
+              <PropertyRef Name="CAT_ID" />
+            </Principal>
+            <Dependent Role="EJERCICIO">
+              <PropertyRef Name="CAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="selfgymdb2ModelStoreContainer">
+          <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EJERCICIO" EntityType="Self.EJERCICIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NOTICIA" EntityType="Self.NOTICIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_EJERCICI_CATEGORIA_CATEGORI" Association="Self.FK_EJERCICI_CATEGORIA_CATEGORI">
+            <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+            <End Role="EJERCICIO" EntitySet="EJERCICIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="selfgymdb2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CATEGORIA">
+          <Key>
+            <PropertyRef Name="CAT_ID" />
+          </Key>
+          <Property Name="CAT_ID" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CAT_NOMBRE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="CAT_DESCRIPCION" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EJERCICIO" Relationship="Self.FK_EJERCICI_CATEGORIA_CATEGORI" FromRole="CATEGORIA" ToRole="EJERCICIO" />
+        </EntityType>
+        <EntityType Name="EJERCICIO">
+          <Key>
+            <PropertyRef Name="EJE_ID" />
+          </Key>
+          <Property Name="EJE_ID" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CAT_ID" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="EJE_NOMBRE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="EJE_DESCRIPCION" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="EJE_URLVIDEO" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CATEGORIA" Relationship="Self.FK_EJERCICI_CATEGORIA_CATEGORI" FromRole="EJERCICIO" ToRole="CATEGORIA" />
+        </EntityType>
+        <EntityType Name="NOTICIA">
+          <Key>
+            <PropertyRef Name="NOT_ID" />
+          </Key>
+          <Property Name="NOT_ID" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOT_DESCRIPCION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="USU_ID" />
+          </Key>
+          <Property Name="USU_ID" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USU_CONTRASENA" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="USU_EMAIL" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="USU_EDAD" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_EJERCICI_CATEGORIA_CATEGORI">
+          <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="0..1" />
+          <End Role="EJERCICIO" Type="Self.EJERCICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA">
+              <PropertyRef Name="CAT_ID" />
+            </Principal>
+            <Dependent Role="EJERCICIO">
+              <PropertyRef Name="CAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="selfgymdb2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" />
+          <EntitySet Name="EJERCICIO" EntityType="Self.EJERCICIO" />
+          <EntitySet Name="NOTICIA" EntityType="Self.NOTICIA" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <AssociationSet Name="FK_EJERCICI_CATEGORIA_CATEGORI" Association="Self.FK_EJERCICI_CATEGORIA_CATEGORI">
+            <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+            <End Role="EJERCICIO" EntitySet="EJERCICIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="selfgymdb2ModelStoreContainer" CdmEntityContainer="selfgymdb2Entities">
+          <EntitySetMapping Name="CATEGORIA">
+            <EntityTypeMapping TypeName="selfgymdb2Model.CATEGORIA">
+              <MappingFragment StoreEntitySet="CATEGORIA">
+                <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+                <ScalarProperty Name="CAT_NOMBRE" ColumnName="CAT_NOMBRE" />
+                <ScalarProperty Name="CAT_DESCRIPCION" ColumnName="CAT_DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EJERCICIO">
+            <EntityTypeMapping TypeName="selfgymdb2Model.EJERCICIO">
+              <MappingFragment StoreEntitySet="EJERCICIO">
+                <ScalarProperty Name="EJE_ID" ColumnName="EJE_ID" />
+                <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+                <ScalarProperty Name="EJE_NOMBRE" ColumnName="EJE_NOMBRE" />
+                <ScalarProperty Name="EJE_DESCRIPCION" ColumnName="EJE_DESCRIPCION" />
+                <ScalarProperty Name="EJE_URLVIDEO" ColumnName="EJE_URLVIDEO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NOTICIA">
+            <EntityTypeMapping TypeName="selfgymdb2Model.NOTICIA">
+              <MappingFragment StoreEntitySet="NOTICIA">
+                <ScalarProperty Name="NOT_ID" ColumnName="NOT_ID" />
+                <ScalarProperty Name="NOT_DESCRIPCION" ColumnName="NOT_DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="selfgymdb2Model.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="USU_ID" ColumnName="USU_ID" />
+                <ScalarProperty Name="USU_CONTRASENA" ColumnName="USU_CONTRASENA" />
+                <ScalarProperty Name="USU_EMAIL" ColumnName="USU_EMAIL" />
+                <ScalarProperty Name="USU_EDAD" ColumnName="USU_EDAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

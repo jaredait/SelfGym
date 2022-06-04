@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="selfgymdb2ModelStoreContainer" CdmEntityContainer="selfgymdb2Entities">
+    <EntitySetMapping Name="CATEGORIA">
+      <EntityTypeMapping TypeName="selfgymdb2Model.CATEGORIA">
+        <MappingFragment StoreEntitySet="CATEGORIA">
+          <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+          <ScalarProperty Name="CAT_NOMBRE" ColumnName="CAT_NOMBRE" />
+          <ScalarProperty Name="CAT_DESCRIPCION" ColumnName="CAT_DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EJERCICIO">
+      <EntityTypeMapping TypeName="selfgymdb2Model.EJERCICIO">
+        <MappingFragment StoreEntitySet="EJERCICIO">
+          <ScalarProperty Name="EJE_ID" ColumnName="EJE_ID" />
+          <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+          <ScalarProperty Name="EJE_NOMBRE" ColumnName="EJE_NOMBRE" />
+          <ScalarProperty Name="EJE_DESCRIPCION" ColumnName="EJE_DESCRIPCION" />
+          <ScalarProperty Name="EJE_URLVIDEO" ColumnName="EJE_URLVIDEO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NOTICIA">
+      <EntityTypeMapping TypeName="selfgymdb2Model.NOTICIA">
+        <MappingFragment StoreEntitySet="NOTICIA">
+          <ScalarProperty Name="NOT_ID" ColumnName="NOT_ID" />
+          <ScalarProperty Name="NOT_DESCRIPCION" ColumnName="NOT_DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="selfgymdb2Model.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="USU_ID" ColumnName="USU_ID" />
+          <ScalarProperty Name="USU_CONTRASENA" ColumnName="USU_CONTRASENA" />
+          <ScalarProperty Name="USU_EMAIL" ColumnName="USU_EMAIL" />
+          <ScalarProperty Name="USU_EDAD" ColumnName="USU_EDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

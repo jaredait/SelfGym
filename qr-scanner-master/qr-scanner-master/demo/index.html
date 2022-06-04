@@ -10,6 +10,7 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <link href="../src/styles.css" rel="stylesheet" type="text/css" />
     <!-- JavaScript Bundle with Popper -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -17,13 +18,19 @@
       crossorigin="anonymous"
     ></script>
   </head>
+
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.slim.js"
+    integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+    crossorigin="anonymous"
+  ></script>
   <body>
     <nav
       class="navbar navbar-expand-lg bg-light"
       style="background-color: var(--color-e) !important; font-weight: 500"
     >
       <div class="container-fluid">
-        <a class="navbar-brand titulo-nav-bar" href="#">SelfGym</a>
+        <a class="navbar-brand titulo-nav-bar" href="./index.html">SelfGym</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -38,7 +45,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="./index.html"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Gimnasios Asociados</a>
@@ -55,9 +64,13 @@
                 Opciones
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Noticias</a></li>
                 <li>
-                  <a class="dropdown-item" href="#">Biblioteca de ejercicios</a>
+                  <a class="dropdown-item" href="./noticias.html">Noticias</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./libreria-ejercicios.html"
+                    >Librería de ejercicios</a
+                  >
                 </li>
               </ul>
             </li>
@@ -68,39 +81,42 @@
         </div>
       </div>
     </nav>
+    <div id="aqui-el-menu"></div>
     <!--FIN NAVBAR-->
+    <button id="boton" onclick="getEjercicios()">Press me</button>
     <div id="video-container" class="example-style-1">
       <video id="qr-video"></video>
     </div>
     <div class="contenedor-instrucciones">
       <p><em>¡Escanea tu código QR!</em></p>
       <div class="contenedor-botones-scan">
-        <button id="start-button" class=" btn btn-info">🔍</button>
+        <button id="start-button" class="btn btn-info">🔍</button>
         &nbsp;
-        <button id="stop-button" class=" btn btn-info">❌</button>
+        <button id="stop-button" class="btn btn-info">❌</button>
       </div>
     </div>
 
     <div class="contenedor-video-ejercicios">
       <iframe
         id="aqui-el-video"
-        width="720"
-        height="720"
-        src="https://www.youtube.com/embed/16eHytlXCdU">
-      </iframe>  
+        width="900"
+        height="560"
+        src="https://www.youtube.com/embed/16eHytlXCdU"
+      >
+      </iframe>
     </div>
     <div>
-        <b>Cambiar de cámara:</b>
-        <select id="cam-list">
-          <option value="environment" selected>
-            Cámara posterior
-          </option>
-          <option value="user">Cámara frontal</option>
-        </select>
-      </div>
+      <b>Cambiar de cámara:</b>
+      <select id="cam-list">
+        <option value="environment" selected>Cámara posterior</option>
+        <option value="user">Cámara frontal</option>
+      </select>
+    </div>
 
     <b>Enlace del código QR: </b>
     <span id="cam-qr-result"></span>
+
+    <script src="../src/scripts.js"></script>
 
     <script type="module">
       import QrScanner from "../qr-scanner.min.js";
@@ -164,118 +180,5 @@
         scanner.stop();
       });
     </script>
-
-    <style>
-      :root {
-        --color-a: #e174fd;
-        --color-b: #a868e3;
-        --color-c: #9e7ffb;
-        --color-d: #686be3;
-        --color-e: #749bfd;
-        --color-f: #e1d0fd;
-      }
-
-      div {
-        margin-bottom: 16px;
-      }
-
-      #video-container {
-        margin: 1.5em;
-        border-radius: 10px;
-        border: 5px var(--color-d) solid;
-        line-height: 0;
-      }
-
-      #video-container.example-style-1 .scan-region-highlight-svg,
-      #video-container.example-style-1 .code-outline-highlight {
-        stroke: #64a2f3 !important;
-      }
-
-      #video-container.example-style-2 {
-        position: relative;
-        width: max-content;
-        height: max-content;
-        overflow: hidden;
-      }
-      #video-container.example-style-2 .scan-region-highlight {
-        border-radius: 30px;
-        outline: rgba(0, 0, 0, 0.25) solid 50vmax;
-      }
-      #video-container.example-style-2 .scan-region-highlight-svg {
-        display: none;
-      }
-      #video-container.example-style-2 .code-outline-highlight {
-        stroke: rgba(255, 255, 255, 0.5) !important;
-        stroke-width: 15 !important;
-        stroke-dasharray: none !important;
-      }
-
-      hr {
-        margin-top: 32px;
-      }
-      input[type="file"] {
-        display: block;
-        margin-bottom: 16px;
-      }
-
-      .contenedor-video-ejercicios {
-        margin: auto;
-        width: 100%;
-        max-width: 80vw;
-        display: flex;
-        justify-content: center;
-        border-radius: 10px;
-      }
-
-      iframe{
-        border-radius: 10px;
-        margin: 0 0 2em 0;
-
-      }
-
-      #aqui-el-video {
-        padding: 2em 0 0 0;
-      }
-
-      .titulo-nav-bar {
-        font-size: 2em;
-      }
-
-      nav {
-        color: #fff !important;
-        font-size: 1.5em;
-        background-color: var(--color-d) !important;
-        border: 4px var(--color-e) solid;
-      }
-
-      .contenedor-instrucciones {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        border: 2px var(--color-d) solid;
-        margin: 1.5em;
-        align-content: center;
-        border-radius: 10px;
-      }
-      .contenedor-instrucciones p {
-        font-size: 1.5em;
-        margin: 0.5em 0 0.5em 0;
-        text-align: center;
-      }
-
-      body {
-        width: 100%;
-        max-width: 1290px;
-      }
-
-      .contenedor-botones-scan{
-        margin: 0 0 0 1em;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-content: center;
-      }
-    </style>
   </body>
 </html>

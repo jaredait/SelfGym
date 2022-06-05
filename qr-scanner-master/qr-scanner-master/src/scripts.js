@@ -38,6 +38,7 @@ function obtenerTarjetaEjercicio(value){
     video.setAttribute('src', value['EJE_URLVIDEO']);
 
     tarjeta.append(nombre, descripcion, video);
+    tarjeta.classList = 'tarjeta-ejercicio';
     return tarjeta;
 }
 
@@ -81,6 +82,7 @@ function obtenerTarjetaNoticia(value){
     tarjeta.setAttribute('id', value['NOT_ID']);
     tarjeta.innerHTML = value['NOT_DESCRIPCION'];
 
+    tarjeta.classList = 'tarjeta-noticia';
     return tarjeta;
 }
 //#endregion

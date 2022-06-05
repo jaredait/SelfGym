@@ -2,9 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Librería de ejercicios</title>
+    <title>SelfGym</title>
+    <!-- CSS only -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -18,25 +17,28 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.slim.js"
-      integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
-      crossorigin="anonymous"
-    ></script>
 
-        <!-- Google Fonts-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
     
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+
   </head>
-  <body>
-    <nav
-      class="navbar navbar-expand-lg bg-light menu-oscuro "
-    >
+
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.slim.js"
+    integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+    crossorigin="anonymous"
+  ></script>
+  <body class="landing-background">
+    <nav class="navbar navbar-expand-lg bg-light menu-oscuro">
       <div class="container-fluid">
-        <a class="navbar-brand titulo-nav-bar opcion-menu" href="./landing.html">
-          <img class="img-sm" src="../img/selfgymlogo.PNG">
+        <a
+          class="navbar-brand titulo-nav-bar opcion-menu"
+          href="./landing.html"
+        >
+          <img class="img-sm" src="../img/selfgymlogo.PNG" />
         </a>
         <button
           class="navbar-toggler"
@@ -52,7 +54,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link opcion-menu" aria-current="page" href="./landing.html"
+              <a
+                class="nav-link opcion-menu"
+                aria-current="page"
+                href="./landing.html"
                 >Home</a
               >
             </li>
@@ -70,12 +75,21 @@
               >
                 Opciones
               </a>
-              <ul class="dropdown-menu menu-oscuro" aria-labelledby="navbarDropdown">
+              <ul
+                class="dropdown-menu menu-oscuro"
+                aria-labelledby="navbarDropdown"
+              >
                 <li>
-                  <a class="dropdown-item opcion-menu menu-oscuro" href="./noticias.html">Noticias</a>
+                  <a
+                    class="dropdown-item opcion-menu menu-oscuro"
+                    href="./noticias.html"
+                    >Noticias</a
+                  >
                 </li>
                 <li>
-                  <a class="dropdown-item opcion-menu menu-oscuro" href="./libreria-ejercicios.html"
+                  <a
+                    class="dropdown-item opcion-menu menu-oscuro"
+                    href="./libreria-ejercicios.html"
                     >Librería de ejercicios</a
                   >
                 </li>
@@ -88,16 +102,28 @@
         </div>
       </div>
     </nav>
-
     <div class="container">
-      <div class="libreria-desc">
-              <h1>Librería de Ejercicios</h1>
-      <p>¡Aquí puedes ver una lista de los ejercicios que puedes realizar!</p>
-      <div id="contenedor-ejercicios" class="contenedor-libreria"></div>
+      <div class="info">
+        <h3>¿Qué es <b><em>SelfGym</em></b> ?</h3>
+        <p>
+          <em>SelfGym </em> es una aplicación web que te permite conocer por tí mismo los
+          distintos ejercicios que puedes realizar en el gimnasio.
+        </p>
+
+        <div class="info-img">
+          <div>
+            <h3>¿Cómo funciona?</h3>
+            <p>
+              Escanea el código que se encuentra ubicado en las máquinas de
+              ejercicio.
+            </p>
+          </div>
+
+          <img src="../img/scantransparent.png" />
+        </div>
       </div>
     </div>
 
-    
     <footer class="bg-dark text-center text-white">
       <!-- Grid container -->
       <div class="container p-4 pb-0">
@@ -187,11 +213,4 @@
       <!-- Copyright -->
     </footer>
   </body>
-
-  <script src="../src/scripts.js"></script>
-  <script>
-    $(document).ready(function () {
-        getEjercicios();
-    });
-  </script>
 </html>

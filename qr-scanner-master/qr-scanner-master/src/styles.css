@@ -108,9 +108,10 @@ body {
   background: rgb(0, 0, 0);
   background: linear-gradient(
     355deg,
-    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 1) 1%,
+    rgba(40, 40, 44, 1) 23%,
     rgba(2, 218, 244, 1) 30%,
-    rgba(40, 40, 44, 1) 72%
+    rgba(40, 40, 44, 1) 78%
   );
 }
 

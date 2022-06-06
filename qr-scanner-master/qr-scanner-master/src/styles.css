@@ -66,6 +66,11 @@ input[type="file"] {
   border-radius: 10px;
 }
 
+.select-fondo{
+  font-size: 1.2em;
+  background-color: var(--color-principal-blur);
+}
+
 iframe {
   border-radius: 10px;
   margin: 0 0 2em 0;
@@ -81,13 +86,31 @@ iframe {
 }
 
 .opcion-menu {
+  border: 2px var(--color-e) solid;
   color: var(--color-blanco);
   margin: 3px;
-  border-radius: 5px;
+  border-radius: 5px; 
+  padding: 10px;
+}
+
+.opcion-menu-logo {
+  border: 2px var(--color-e) solid;
+  color: var(--color-blanco);
+  margin: 3px;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.opcion-menu-logo:hover {
+  border: 2px var(--color-principal) solid;
+  color: var(--color-blanco);
+  margin: 3px;
+  border-radius: 55%;
 }
 
 .menu-oscuro {
   background-color: var(--color-e) !important;
+  
 }
 
 .opciones-salida:active {
@@ -157,8 +180,9 @@ nav {
   border: 4px var(--color-e) solid;
   margin: 0;
   align-content: center;
-  border-radius: 10px;
+  border-radius: 0px;
   background-color: var(--color-principal-blur);
+  padding: 0.5em;
 }
 .contenedor-instrucciones p {
   font-size: 1.5em;
@@ -205,6 +229,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 720px;
 }
 
 .tarjeta-ejercicio h2 {
@@ -214,7 +239,18 @@ body {
 
 .tarjeta-ejercicio p {
   color: var(--color-blanco);
-  font-size: 1.5em;
+  font-size: 1.3em;
+  text-align: left;
+}
+
+.tarjeta-ejercicio ol {
+  color: var(--color-blanco);
+  font-size: 1.2em;
+  text-align: left;
+}
+
+.tarjeta-ejercicio ol li::marker{
+  color: var(--color-principal);
 }
 
 #contenedor-noticias {
@@ -226,9 +262,9 @@ body {
 .tarjeta-noticia {
   background-color: var(--color-e);
   border-radius: 10px;
-  width: 85%;
+  width: 90%;
   padding: 3em;
-  margin: 1em 1em 3em 1em;
+  margin: 1em 1em 6em 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -237,6 +273,10 @@ body {
 .tarjeta-noticia h1 {
   color: var(--color-principal);
   font-size: 4.5em;
+}
+
+.tarjeta-noticia h2{
+  color: var(--color-principal);
 }
 
 .tarjeta-noticia em {
@@ -250,4 +290,15 @@ ol {
   font-size: 1.3em;
   line-height: 2;
   font-weight: lighter;
+}
+
+.tarjeta-noticia ol li::marker{
+  font-size: 1.5em;
+  color: var(--color-principal);
+}
+
+.tarjeta-noticia img{
+  max-width: 80%;
+  margin: 2em;
+  border-radius: 10px;
 }

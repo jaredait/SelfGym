@@ -32,9 +32,9 @@ function obtenerTarjetaEjercicio(value){
 
     tarjeta.setAttribute('id', value['EJE_ID']);
     nombre.textContent = value['EJE_NOMBRE'];
-    descripcion.textContent = value['EJE_DESCRIPCION'];
-    video.setAttribute('width', "560");
-    video.setAttribute('height', "315");
+    descripcion.innerHTML = value['EJE_DESCRIPCION'];
+    video.setAttribute('width', "600");
+    video.setAttribute('height', "340");
     video.setAttribute('src', value['EJE_URLVIDEO']);
 
     tarjeta.append(nombre, descripcion, video);

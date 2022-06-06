@@ -72,12 +72,14 @@
               </a>
               <ul class="dropdown-menu menu-oscuro" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item opcion-menu menu-oscuro" href="./noticias.html">Noticias</a>
-                </li>
-                <li>
-                  <a class="dropdown-item opcion-menu menu-oscuro" href="./libreria-ejercicios.html"
+                  <a
+                    class="dropdown-item opcion-menu menu-oscuro"
+                    href="./libreria-ejercicios.html"
                     >Librería de ejercicios</a
                   >
+                </li>
+                <li>
+                  <a class="dropdown-item opcion-menu menu-oscuro" href="./noticias.html">Noticias</a>
                 </li>
               </ul>
             </li>
@@ -99,6 +101,13 @@
         &nbsp;
         <button id="stop-button" class="btn btn-outline-danger">&nbsp;&nbsp;❌&nbsp;&nbsp;</button>
       </div>
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      <select id="cam-list" class="form-select-sm select-fondo">
+        <option value="environment" selected>Cámara posterior</option>
+        <option value="user">Cámara frontal</option>
+      </select>
     </div>
     <div id="video-container" class="example-style-1">
       <video id="qr-video"></video>
@@ -116,10 +125,7 @@
     </div>
     <div>
       <b>Cambiar de cámara:</b>
-      <select id="cam-list">
-        <option value="environment" selected>Cámara posterior</option>
-        <option value="user">Cámara frontal</option>
-      </select>
+
     </div>
 
     <b>Enlace del código QR: </b>
